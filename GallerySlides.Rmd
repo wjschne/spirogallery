@@ -1034,7 +1034,7 @@ class: split-square1
 <object data="counterspin_triangles.svg" type="image/svg+xml"></object>
 ]
 
-.column.p-2.light[
+.column.p-2.dark[
 .vmiddle.center[
 # Remembering
 # .small[.small[the]] Merger
@@ -1056,7 +1056,7 @@ k <- 80
       output = "counterspin_triangles.svg") %>%
     image_scale(scale = seq(1, 0.1, length.out = k)) %>%
     image_spin(rpm = rep(c(1, -1), k / 2) * seq(1, 3, length.out = k)) %>%
-    add_background(rounding = 1) %>% 
+    add_background(rounding = 1, color = bg_dark) %>% 
     add_restart()
 ```
 
@@ -1971,7 +1971,7 @@ class: split-square1
 
 .column[
 <!--  --> 
-<img src="superhero.svg" type="image/svg+xml">
+<img src="superhero_bg.svg" type="image/svg+xml">
 <!--  --> 
 ]
 
@@ -2087,7 +2087,7 @@ spiro(
     colors = "firebrick", 
     duration = c(2,3,4,5,6,10,12,15,20,30,60)) %>% 
   # add_restart(color = "#333333",fill = scales::alpha("gray95")) %>%
-  add_background("gray95")
+  add_background(bg_light)
 ```
 
 ---
