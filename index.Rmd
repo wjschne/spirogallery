@@ -6,6 +6,7 @@ lang: en-US
 output:
   xaringan::moon_reader:
     self_contained: false
+  
     seal: false
     css: [bootstrap.min.css, default, ninjutsu, spiro_slides.css]
     lib_dir: libs

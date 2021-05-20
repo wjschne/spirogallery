@@ -14,16 +14,6 @@ h1, h2, h3, .h1, .h2, .h3 .author{
   line-height: normal;
 }
 
-.row {
-  overflow: hidden;
-    padding: 0;
-  margin: 0;
-}
-
-.remark-slide-number {
-  display: none;
-}
-
 .split-square2>.column:first-of-type {
   width: 43.75%;
   height:100%;
@@ -125,3 +115,5 @@ max-width: 43.75%;
 .w-2 {
 width: 56.25%;
 }
+
+
