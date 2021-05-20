@@ -1,10 +1,10 @@
 ---
-title: "Schneirographs"
-subtitle: "Three Numbers and One Equation"
-author: "by W. Joel Schneider"
+title: Schneirographs
+subtitle: Three Numbers and One Equation
+author: by W. Joel Schneider
+lang: en-US
 output:
   xaringan::moon_reader:
-    includes:
     self_contained: false
     seal: false
     css: [bootstrap.min.css, default, ninjutsu, spiro_slides.css]
