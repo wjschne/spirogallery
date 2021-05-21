@@ -16,6 +16,7 @@ output:
       countIncrementalSlides: false
       ratio: "16:9"
       titleSlideClass: ["center", "middle", "dark"]
+      beforeInit: "giffer.js"
 ---
 class: split-square2, dark
 
@@ -53,8 +54,15 @@ options(htmltools.dir.version = FALSE)
 xaringanExtra::use_freezeframe()
 ```
 
+```{r xaringan-tile-view, echo=FALSE}
+library(xaringanExtra)
+xaringanExtra::use_tile_view()
+```
+
+
 ```{r share-again, echo=FALSE}
 xaringanExtra::use_share_again()
+xaringanExtra::style_share_again(share_buttons = "all")
 ```
 
 ```{r style-share-again, echo=FALSE}
@@ -94,8 +102,9 @@ class: split-square2
 ]
 
 .column[
-<object data="viridis_weave.svg" type="image/svg+xml"></object>
-
+<!--  --> 
+<img src="viridis_weave.svg" type="image/svg+xml">
+<!--  --> 
 ]
 
 ???
@@ -1086,6 +1095,14 @@ class: split-square1
 # .small[.small[the]] Merger
 # .small[.small[of]] Reemerging
 # Memories
+
+<script>
+function pausePlayAll() {
+document.querySelector('animateTransform').beginElement();
+}
+</script>
+
+<button onclick="Navigation();">Go</button>
 ]
 ]
 

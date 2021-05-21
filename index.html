@@ -23,6 +23,9 @@ class: split-square2, dark
 
 
 
+
+
+
 .column.right[
 .vmiddle[
 
@@ -54,8 +57,9 @@ class: split-square2
 ]
 
 .column[
-&lt;object data="viridis_weave.svg" type="image/svg+xml"&gt;&lt;/object&gt;
-
+&lt;!--  --&gt; 
+&lt;img src="viridis_weave.svg" type="image/svg+xml"&gt;
+&lt;!--  --&gt; 
 ]
 
 ???
@@ -1064,6 +1068,14 @@ class: split-square1
 # .small[.small[the]] Merger
 # .small[.small[of]] Reemerging
 # Memories
+
+&lt;script&gt;
+function pausePlayAll() {
+document.querySelector('animateTransform').beginElement();
+}
+&lt;/script&gt;
+
+&lt;button onclick="Navigation();"&gt;Go&lt;/button&gt;
 ]
 ]
 
@@ -2261,6 +2273,7 @@ tibble(
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="giffer.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "kate",
 "highlightLines": true,
