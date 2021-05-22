@@ -49,23 +49,23 @@ bg_light <- "#f0f2f5"
 bg_dark <- "#282829"
 ```
 
-```{r xaringanExtra-freezeframe, echo=FALSE}
+```{r xaringanExtra-freezeframe, echo=FALSE, eval=TRUE}
 options(htmltools.dir.version = FALSE)
 xaringanExtra::use_freezeframe()
 ```
 
-```{r xaringan-tile-view, echo=FALSE}
+```{r xaringan-tile-view, echo=FALSE, eval=TRUE}
 library(xaringanExtra)
 xaringanExtra::use_tile_view()
 ```
 
 
-```{r share-again, echo=FALSE}
+```{r share-again, echo=FALSE, eval=TRUE}
 xaringanExtra::use_share_again()
 xaringanExtra::style_share_again(share_buttons = "all")
 ```
 
-```{r style-share-again, echo=FALSE}
+```{r style-share-again, echo=FALSE, eval=TRUE}
 xaringanExtra::style_share_again(
   share_buttons = c("all")
 )
@@ -90,9 +90,9 @@ xaringanExtra::style_share_again(
 ]
 
 ---
-class: split-square2
+class: split-square2, dark
 
-.fixed-bottom.left.p-4.w-1.light[Press `f` on your keyboard to see in full screen mode. To see the code that generated each spirograph, press `p`. Other commands can be seen by pressing `h` for help.]
+.fixed-bottom.left.p-4.w-1.light[Press `f` on your keyboard to see in full screen mode. Press `o` to see an overview of all the slides. To see the code that generated each spirograph, press `p`. Other commands can be seen by pressing `h` for help.]
 
 .column.light[
 .vmiddle.center[
@@ -273,51 +273,52 @@ ggsave("spiro_parameters.svg", width = 7, height = 7)
 ]
 
 ---
-class: split-square1
+class: split-square1, dark
 
-.column[
+.column.bg-white[
 ![](animation_spiro.gif)
 ]
 
 .column.dark[
-.vmiddle.font2.p-5.pr-0[
+.vmiddle.font2.pl-5.pr-0.ml-3[
 In this spirograph,<br>the fixed radius *R* is 3,<br>the cycling radius *r* is 1,<br>and the pen radius *d* is 2.
 ]
 ]
 
 ---
-class: split-square1
-
-.column[
-![](animationsvg.gif)
-]
+class: split-square2
 
 .column.dark[
-.vmiddle.font2.p-5.pr-0[
+.vmiddle.font2.p-5.pr-0.m-2[
 Setting the cycling radius
 to a negative value will
 make the cycling circle
 rotate around the outside
 of the fixed circle.
+]
+]
 
+.column[
+![](animationsvg.gif)
 ]
-]
+
+
 ---
-class: middle, font_medium, split-square2
+class: split-square2, dark
 
-.column.light[.vmiddle.p-5[
-Although I still like making spirographs by hand, I wanted to extend what could be done with the traditional spirograph. I wrote the [spiro package](https://wjschne.github.io/spiro/articles/HowToUse/spiro.html) in R to make images that would be impossible to create on paper.
+.column.light[.vmiddle.p-5.font_large[
+Although I still like making spirographs by hand, I wanted to extend what could be done with the traditional spirograph. I wrote the [spiro ](https://wjschne.github.io/spiro/articles/HowToUse/spiro.html) package in R to make images that would be impossible to create on paper.
 ]]
 
-.column.dark[.vmiddle.p-5[
+.column.dark.font-medium[.vmiddle.p-5.font_large[
 I cannot usually predict what will happen when I play with the three primary numbers of the equation. However, once a certain combination strikes me as interesting, I play with cutting it into different color segments to see if something of further interest happens. Sometimes I merge many spirographs and spin them to see if the emerging patterns are pleasing. 
 ]]
 
 ---
-class: middle, split-square1
+class: middle, split-square1, dark
 
 .column.light.font3.center[.vmiddle.p-5[
-Here I demonstrate what can be done with [spiro package](https://wjschne.github.io/spiro/articles/HowToUse/spirograph.html). 
+Here I demonstrate what can be done with [spiro ](https://wjschne.github.io/spiro/articles/HowToUse/spirograph.html) package. 
 ]]
 
 .column.dark.font3.center[.vmiddle.p-5[
@@ -406,10 +407,10 @@ spiro(
 ```
 
 ---
-class: split-square1
+class: split-square1, dark
 
 
-.column.p-3[
+.column.p-3.bg-white[
 <object data="oslo_aster.svg" type="image/svg+xml"></object>
 ]
 
@@ -446,7 +447,7 @@ spiro(file = "oslo_aster.svg",
 ```
 
 ---
-class: split-square2
+class: split-square2, dark
 
 .column.p-5.light[
 .vmiddle.center[
@@ -489,9 +490,9 @@ spiro(
 ```
 
 ---
-class: split-square1
+class: split-square1, dark
 
-.column.p-4[
+.column.p-4.bg-white[
 <!--  --> 
 <img src="youre_my_favorite.svg" type="image/svg+xml">
 <!--  --> 
@@ -544,55 +545,19 @@ tibble::tibble(
 ```
 
 ---
-class: split-square2
-
-.column.p-5.dark[
-.vmiddle.center[
-# Suspension 
-# of Disbelief
-]
-]
-.column[
-<object data="suspension_of_disbelief.svg" type="image/svg+xml"></object>
-]
-
-???
-
-```{r, eval = remake}
-n <- 20
-  spiro(
-    fixed_radius = 4,
-    cycling_radius = 5,
-    points_per_polygon = 500,
-    pen_radius = 1, 
-    file = "suspension_of_disbelief.svg") %>% 
-  image_merge(
-    copies = n, 
-    output = "suspension_of_disbelief.svg") %>%
-  add_fills(
-    transparency = 1 / n, 
-    colors = "blue") %>% 
-  image_scale(scale = seq(1,0.1,length.out = n)) %>% 
-  image_spin(rpm = seq(0.5,10, length.out = n)) %>% 
-  add_restart(fill = bg_light) %>% 
-    add_background(color = bg_light)
-```
-
-
----
-class: split-square1
-
-.column[
-<!--  --> 
-<img src="ride_ahead_to_make_the_fire.svg" type="image/svg+xml">
-<!--  --> 
-]
+class: split-square2, dark
 
 .column.p-4.light[
 .vmiddle.center[
 # Ride Ahead
 # .small[.small[to]] Make the Fire
 ]
+]
+
+.column[
+<!--  --> 
+<img src="ride_ahead_to_make_the_fire.svg" type="image/svg+xml">
+<!--  --> 
 ]
 
 ???
@@ -631,8 +596,89 @@ spiro(
              line_width = 1.5) 
 ```
 
+
 ---
-class: split-square2
+class: split-square1, dark
+
+.column[
+<object data="suspension_of_disbelief.svg" type="image/svg+xml"></object>
+]
+
+.column.p-5.dark[
+.vmiddle.center[
+# Suspension 
+# of Disbelief
+]
+]
+
+
+???
+
+```{r, eval = remake}
+n <- 20
+  spiro(
+    fixed_radius = 4,
+    cycling_radius = 5,
+    points_per_polygon = 500,
+    pen_radius = 1, 
+    file = "suspension_of_disbelief.svg") %>% 
+  image_merge(
+    copies = n, 
+    output = "suspension_of_disbelief.svg") %>%
+  add_fills(
+    transparency = 1 / n, 
+    colors = "blue") %>% 
+  image_scale(scale = seq(1,0.1,length.out = n)) %>% 
+  image_spin(rpm = seq(0.5,10, length.out = n)) %>% 
+  add_restart(fill = bg_light) %>% 
+    add_background(color = bg_light)
+```
+
+---
+class: split-square2, dark
+
+
+.column.p-2.light[
+.vmiddle.center[
+# Nanoscale
+# Predictions
+]
+]
+
+.column[
+<!--  --> 
+<img src="nanoscale_predictions.svg" type="image/svg+xml">
+<!--  --> 
+]
+
+
+???
+
+```{r, eval=remake}
+spiro(
+  fixed_radius = 800,
+  cycling_radius = 677,
+  pen_radius = 100,
+  color_groups = 10,
+  color_cycles = 61,
+  windings = 677 * 0.5,
+  transparency = 1,
+  start_angle = 0,
+  points_per_polygon = 300,
+  colors = scico(n = 10, palette = "cork"),
+  draw_fills = F,
+  file = "nanoscale_predictions.svg"
+) %>%
+  add_background_gradient(colors = c("black", "black", "gray40"))
+```
+
+
+---
+class: split-square1
+
+.column[
+<object data="violet_blackout.svg" type="image/svg+xml"></object>
+]
 
 .column.p-5.light[
 .vmiddle.center[
@@ -640,9 +686,7 @@ class: split-square2
 # Blackout
 ]
 ]
-.column[
-<object data="violet_blackout.svg" type="image/svg+xml"></object>
-]
+
 
 ???
 
@@ -669,41 +713,6 @@ tibble(
   add_background() 
 ```
 
----
-class: split-square1
-
-.column[
-<!--  --> 
-<img src="nanoscale_predictions.svg" type="image/svg+xml">
-<!--  --> 
-]
-
-.column.p-2.light[
-.vmiddle.center[
-# Nanoscale
-# Predictions
-]
-]
-
-???
-
-```{r, eval=remake}
-spiro(
-  fixed_radius = 800,
-  cycling_radius = 677,
-  pen_radius = 100,
-  color_groups = 10,
-  color_cycles = 61,
-  windings = 677 * 0.5,
-  transparency = 1,
-  start_angle = 0,
-  points_per_polygon = 300,
-  colors = scico(n = 10, palette = "cork"),
-  draw_fills = F,
-  file = "nanoscale_predictions.svg"
-) %>%
-  add_background_gradient(colors = c("black", "black", "gray40"))
-```
 
 ---
 class: split-square2
@@ -789,7 +798,7 @@ spiro(
 ```
 
 ---
-class: split-square2
+class: split-square2, dark
 
 .column.p-2.light[
 .vmiddle.center[
@@ -835,19 +844,65 @@ spiro(
 ```
 
 ---
-class: split-square1
+class: split-square1, dark
+
+.column.bg-white[
+<object data="illusively_elusive_allusion.svg" type="image/svg+xml"></object>
+]
+
+.column.p-2.dark[
+.vmiddle.center[
+# Illusively  
+# Elusive
+# Allusion
+]
+]
+
+
+
+???
+
+```{r, eval=remake}
+k <- 80
+  spiro(
+    4,
+    3,
+    3,
+    file = "asdf.svg",
+    color_groups = 4,
+    colors = rgb(
+      c(0, .1418, .2118, .7012),
+      c(.0039, .1608, .6392, 1),
+      c(.3059, 0.9569, .9922, .9647),
+    )  ,
+    transparency = 0.5,
+    points_per_polygon = 50
+  ) %>%
+    image_merge(
+      copies = k,
+      output = "illusively_elusive_allusion.svg") %>%
+    image_scale(scale = seq(1, 0.2, length.out = k)) %>%
+    image_spin(rpm = rep(c(1, -1), k / 2) * seq(1, 10, length.out = k)) %>% 
+  add_restart()
+```
+
+
+---
+class: split-square2, dark
+
+
+
+.column.p-2.light[
+.vmiddle.center[
+# Skyscraper
+# Sunrise
+]
+]
 
 .column[
 <!--  --> 
 <img src="skyscraper_sunrise.svg" type="image/svg+xml">
 <!--  --> 
-]
-
-.column.p-2[
-.vmiddle.center[
-# Skyscraper
-# Sunrise
-]
 ]
 
 ???
@@ -876,49 +931,9 @@ spiro(
   add_background_gradient(bg_colors, stops = bg_stops)
 ```
 
----
-class: split-square2
-
-.column.p-2.dark[
-.vmiddle.center[
-# Illusively  
-# Elusive
-# Allusion
-]
-]
-
-.column[
-<object data="illusively_elusive_allusion.svg" type="image/svg+xml"></object>
-]
-
-???
-
-```{r, eval=remake}
-k <- 80
-  spiro(
-    4,
-    3,
-    3,
-    file = "asdf.svg",
-    color_groups = 4,
-    colors = rgb(
-      c(0, .1418, .2118, .7012),
-      c(.0039, .1608, .6392, 1),
-      c(.3059, 0.9569, .9922, .9647),
-    )  ,
-    transparency = 0.5,
-    points_per_polygon = 50
-  ) %>%
-    image_merge(
-      copies = k,
-      output = "illusively_elusive_allusion.svg") %>%
-    image_scale(scale = seq(1, 0.2, length.out = k)) %>%
-    image_spin(rpm = rep(c(1, -1), k / 2) * seq(1, 10, length.out = k)) %>% 
-  add_restart()
-```
 
 ---
-class: split-square1
+class: split-square1, dark
 
 .column.p-3.light[
 <!--  --> 
@@ -957,7 +972,7 @@ spiro(
 ```
 
 ---
-class: split-square2
+class: split-square2, dark
 
 .column.p-2.light[
 .vmiddle.center[
@@ -988,7 +1003,7 @@ spiro(
 ```
 
 ---
-class: split-square1
+class: split-square1, dark
 
 .column[
 <!--  --> 
@@ -1049,7 +1064,7 @@ c(spiro(
 ```
 
 ---
-class: split-square2
+class: split-square2, dark
 
 .column.p-2.light[
 .vmiddle.center[
@@ -1083,26 +1098,19 @@ tibble(
 ```
 
 ---
-class: split-square1
+class: split-square1, dark
 
-.column.p-2[
+.column.p-2.light[
 <object data="counterspin_triangles.svg" type="image/svg+xml"></object>
 ]
 
 .column.p-2.dark[
 .vmiddle.center[
 # Remembering
-# .small[.small[the]] Merger
-# .small[.small[of]] Reemerging
+# .small[.small[the]] Merger .small[.small[of]] 
+# Reemerging
 # Memories
 
-<script>
-function pausePlayAll() {
-document.querySelector('animateTransform').beginElement();
-}
-</script>
-
-<button onclick="Navigation();">Go</button>
 ]
 ]
 
@@ -1114,7 +1122,7 @@ k <- 80
     file = "asdf.svg",
     color_groups = 3,
     transparency = 0.5,
-    colors = c("#AC1014", "#C0C0C0", "#175C02"),
+    colors = c("#47915b", bg_light, "#8f0a7f"),
     points_per_polygon = 100) %>%
     image_merge(
       copies = k,
@@ -1122,11 +1130,11 @@ k <- 80
     image_scale(scale = seq(1, 0.1, length.out = k)) %>%
     image_spin(rpm = rep(c(1, -1), k / 2) * seq(1, 3, length.out = k)) %>%
     add_background(rounding = 1, color = bg_dark) %>% 
-    add_restart()
+    add_restart(fill = bg_light)
 ```
 
 ---
-class: split-square2
+class: split-square2, dark
 
 .column.p-2.light[
 .vmiddle.center[
@@ -1216,7 +1224,7 @@ spiro(
 ```
 
 ---
-class: split-square2
+class: split-square2, dark
 
 .column.p-2.light[
 .vmiddle.center[
@@ -1270,9 +1278,9 @@ spiro(
 ```
 
 ---
-class: split-square1
+class: split-square1, dark
 
-.column.p-2[
+.column.p-2.light[
 <!--  --> 
 <img src="hawaiian_snow_salad.svg" type="image/svg+xml">
 <!--  --> 
@@ -1313,7 +1321,7 @@ class: split-square2
 # All Along?
 ]
 ]
-.column.p-2[
+.column.p-2.bg-white[
 <!--  --> 
 <img src="was_it_this_obvious_all_along.svg" type="image/svg+xml">
 <!--  --> 
@@ -1397,7 +1405,56 @@ spiro(
 ```
 
 ---
-class: split-square1
+class: split-square2
+
+.column.p-2.dark[
+.vmiddle.center[
+# The Past Was
+# Never Simple
+]
+]
+
+.column[
+<!--  --> 
+<img src="the_past_was_never_simple.svg" type="image/svg+xml">
+<!--  --> 
+]
+
+???
+
+```{r, eval=remake}
+spiro(
+  fixed_radius = 800,
+  cycling_radius = 749,
+  pen_radius = 51,
+  color_groups = 4,
+  color_cycles = 2,
+  transparency = 0.25,
+  start_angle = 0,
+  points_per_polygon = 7000,
+  rotation = -pi / 8,
+  windings = 749,
+  file = "the_past_was_never_simple.svg",
+  colors = c(
+    "firebrick4",
+    "purple4",
+    "midnightblue",
+    "black")) %>%
+  add_background_gradient(
+    rounding = 0,
+    stops = c(0, .08, 0.083, .6, 0.7, 1),
+    colors = c(
+      "white", 
+      "gray95", 
+      "gray40", 
+      "white", 
+      "white", 
+      "white"))
+```
+
+
+---
+class: split-square1, dark
 
 .column.p-2.light[
 <!--  --> 
@@ -1449,7 +1506,7 @@ p[-1:-3] %>%
 ```
 
 ---
-class: split-square2
+class: split-square2, dark
 
 .column.p-2.light[
 .vmiddle.center[
@@ -1533,7 +1590,7 @@ tibble(
 ```
 
 ---
-class: split-square2
+class: split-square2, dark
 
 .column.p-2.light[
 .vmiddle.center[
@@ -1615,53 +1672,17 @@ c(
 ---
 class: split-square2
 
-.column.p-2.light[
-.vmiddle.center[
-# Reconciliation 
-# Reset 490
-]
-]
-.column[
-<object data="reconciliation491.svg" type="image/svg+xml"></object>
-]
-
-???
-
-```{r, eval=remake}
-n <- 36
-spiro(fixed_radius = 3,
-      cycling_radius = 1, 
-      file = "reconciliation491.svg", 
-      colors = "#5262CA10", 
-      points_per_polygon = 300) %>% 
-  image_scale(scale = 0.7) %>% 
-  image_merge(copies = n, 
-              output = "reconciliation491.svg") %>% 
-  add_lines(colors = "#5262CAAA", line_width = 0.5) %>% 
-  image_spin(rpm = seq(1,n) / 12, 
-             rotation_point = c(0.6135,0.6135)) %>% 
-  image_shift(x = -81.5, y = 81.5) %>%
-  add_restart(color = colorspace::lighten("#5262CA", .5), 
-              fill = colorspace::darken("#5262CA", .85)) %>% 
-  add_background_gradient(colors = map(c(0.98, 0.98, 0.95, 0.8), 
-                                       colorspace::darken, 
-                                       col = "#5262CA")) 
-```
-
----
-class: split-square1
-
-.column.pt-4.light[
-<!--  --> 
-<img src="convoluted_candor.svg" type="image/svg+xml">
-<!--  --> 
-]
-
 .column.p-2.dark[
 .vmiddle.center[
 # Convoluted 
 # Candor
 ]
+]
+
+.column.pt-4.light[
+<!--  --> 
+<img src="convoluted_candor.svg" type="image/svg+xml">
+<!--  --> 
 ]
 
 ???
@@ -1689,6 +1710,45 @@ tibble(
   image_merge("convoluted_candor.svg", delete_input = T) %>% 
   add_background(color = bg_light)
 ```
+---
+class: split-square1
+
+.column[
+<object data="reconciliation491.svg" type="image/svg+xml"></object>
+]
+
+.column.p-2.light[
+.vmiddle.center[
+# Reconciliation 
+# Reset 490
+]
+]
+
+
+???
+
+```{r, eval=remake}
+n <- 36
+spiro(fixed_radius = 3,
+      cycling_radius = 1, 
+      file = "reconciliation491.svg", 
+      colors = "#5262CA10", 
+      points_per_polygon = 300) %>% 
+  image_scale(scale = 0.7) %>% 
+  image_merge(copies = n, 
+              output = "reconciliation491.svg") %>% 
+  add_lines(colors = "#5262CAAA", line_width = 0.5) %>% 
+  image_spin(rpm = seq(1,n) / 12, 
+             rotation_point = c(0.6135,0.6135)) %>% 
+  image_shift(x = -81.5, y = 81.5) %>%
+  add_restart(color = colorspace::lighten("#5262CA", .5), 
+              fill = colorspace::darken("#5262CA", .85)) %>% 
+  add_background_gradient(colors = map(c(0.98, 0.98, 0.95, 0.8), 
+                                       colorspace::darken, 
+                                       col = "#5262CA")) 
+```
+
+
 
 ---
 class: split-square2
@@ -1730,44 +1790,10 @@ spiro(
 ---
 class: split-square1
 
-.column[
-<!--  --> 
-<img src="christmas_wreath.svg" type="image/svg+xml">
-<!--  --> 
-]
-
 .column.p-2.dark[
-.vmiddle.center[
-# Happy 
-# Birthday,
-# Whenever
-# It Was
-]
+<object data="web_windows.svg" type="image/svg+xml"></object>
 ]
 
-???
-
-```{r, eval=remake}
-spiro(
-  fixed_radius = sqrt(13),
-  cycling_radius = sqrt(11),
-  pen_radius = sqrt(0.5), 
-  windings = 401, 
-  color_groups = 5, 
-  points_per_polygon = 40, 
-  color_cycles = 906,
-  colors = c("darkred","gray90","darkgreen","gray20","forestgreen"), 
-  transparency = 0.55, 
-  file = "christmas_wreath.svg") %>% 
-  add_background_gradient(
-    rounding = 1,
-    radius = 1, 
-    colors = c("white", rep(c("gray30","black"), 5),"white"), 
-    stops = c(0.4,seq(.45,.9,length.out = 10),0.93))
-```
-
----
-class: split-square2
 
 .column.p-2.light[
 .vmiddle.center[
@@ -1775,9 +1801,6 @@ class: split-square2
 ]
 ]
 
-.column.p-2.dark[
-<object data="web_windows.svg" type="image/svg+xml"></object>
-]
 
 
 ???
@@ -1811,7 +1834,48 @@ spiro(
 ```
 
 ---
-class: split-square1
+class: split-square2
+
+.column.p-2.dark[
+.vmiddle.center[
+# Happy 
+# Birthday,
+# Whenever
+# It Was
+]
+]
+
+.column.bg-white[
+<!--  --> 
+<img src="christmas_wreath.svg" type="image/svg+xml">
+<!--  --> 
+]
+
+???
+
+```{r, eval=remake}
+spiro(
+  fixed_radius = sqrt(13),
+  cycling_radius = sqrt(11),
+  pen_radius = sqrt(0.5), 
+  windings = 401, 
+  color_groups = 5, 
+  points_per_polygon = 40, 
+  color_cycles = 906,
+  colors = c("darkred","gray90","darkgreen","gray20","forestgreen"), 
+  transparency = 0.55, 
+  file = "christmas_wreath.svg") %>% 
+  add_background_gradient(
+    rounding = 1,
+    radius = 1, 
+    colors = c("white", rep(c("gray30","black"), 5),"white"), 
+    stops = c(0.4,seq(.45,.9,length.out = 10),0.93))
+```
+
+
+
+---
+class: split-square1, dark
 
 .column[
 <object data="colliding_scopes.svg" type="image/svg+xml"></object>
@@ -1852,7 +1916,7 @@ tibble(colors = c("#004D47", "#128277")) %>%
 ```
 
 ---
-class: split-square2
+class: split-square2, dark
 
 .column.p-2.light[
 .vmiddle.center[
@@ -1933,7 +1997,7 @@ spiro(
 ```
 
 ---
-class: split-square2
+class: split-square2, dark
 
 .column.p-2.light[
 .vmiddle.center[
@@ -1973,63 +2037,15 @@ class: split-square1
 
 .column[
 <!--  --> 
-<img src="the_past_was_never_simple.svg" type="image/svg+xml">
+<img src="portal_to_the_80s.svg" type="image/svg+xml">
 <!--  --> 
 ]
-
-.column.p-2.dark[
-.vmiddle.center[
-# The Past Was
-# Never Simple
-]
-]
-
-???
-
-```{r, eval=remake}
-spiro(
-  fixed_radius = 800,
-  cycling_radius = 749,
-  pen_radius = 51,
-  color_groups = 4,
-  color_cycles = 2,
-  transparency = 0.25,
-  start_angle = 0,
-  points_per_polygon = 7000,
-  rotation = -pi / 8,
-  windings = 749,
-  file = "the_past_was_never_simple.svg",
-  colors = c(
-    "firebrick4",
-    "purple4",
-    "midnightblue",
-    "black")) %>%
-  add_background_gradient(
-    rounding = 0,
-    stops = c(0, .08, 0.083, .6, 0.7, 1),
-    colors = c(
-      "white", 
-      "gray95", 
-      "gray40", 
-      "white", 
-      "white", 
-      "white"))
-```
-
----
-class: split-square2
 
 .column.p-2.light[
 .vmiddle.center[
 # Portal to
 # the 80s
 ]
-]
-
-.column[
-<!--  --> 
-<img src="portal_to_the_80s.svg" type="image/svg+xml">
-<!--  --> 
 ]
 
 ???
@@ -2046,16 +2062,13 @@ string_bezier(
   add_background(color = "#108998")
 ```
 
+
 ---
-class: split-square1
-.fixed-bottom.right.p-4.gray[Inscribed polygons adapted from [Mathologer's T-Shirt](https://www.youtube.com/watch?v=qhbuKbxJsk8)]
+class: split-square2
+.fixed-bottom.left.p-4.gray[Inscribed polygons adapted from [Mathologer's T-Shirt](https://www.youtube.com/watch?v=qhbuKbxJsk8)]
 
 
-.column[
-<!--  --> 
-<img src="superhero_bg.svg" type="image/svg+xml">
-<!--  --> 
-]
+
 
 .column.p-2.dark[
 .vmiddle.center[
@@ -2063,6 +2076,12 @@ class: split-square1
 # Superior Sense
 # of Fashion
 ]
+]
+
+.column[
+<!--  --> 
+<img src="superhero_bg.svg" type="image/svg+xml">
+<!--  --> 
 ]
 
 ???
@@ -2138,43 +2157,15 @@ tibble(n = 2:k, r = r[-1]) %>%
 dev.off()
 ```
 
----
-class: split-square2
 
-.column.p-2.dark[
-.vmiddle.center[
-# One-Minute
-# Reunion
-]
-]
+
+
+---
+class: split-square1
 
 .column[
-<object data="one_minute_reunion.svg" type="image/svg+xml"></object>
+<object data="sunrises_are_sunsets_recycled.svg" type="image/svg+xml"></object>
 ]
-
-???
-
-```{r, eval=remake}
-spiro(
-  fixed_radius = 5,
-  cycling_radius = 1,
-  pen_radius = 11 / 3,
-  color_groups = 5,
-  colors = rep("gray95", 5),
-  start_angle = pi,
-  draw_fills = FALSE,
-  rotation = pi / 10,
-  file = "one_minute_reunion.svg",
-  points_per_polygon = 250) %>% 
-  add_pathdot(
-    colors = "firebrick", 
-    duration = c(2,3,4,5,6,10,12,15,20,30,60)) %>% 
-  # add_restart(color = "#333333",fill = scales::alpha("gray95")) %>%
-  add_background(bg_light)
-```
-
----
-class: split-square2
 
 .column.p-2.light[
 .vmiddle.center[
@@ -2183,9 +2174,7 @@ class: split-square2
 ]
 ]
 
-.column[
-<object data="sunrises_are_sunsets_recycled.svg" type="image/svg+xml"></object>
-]
+
 
 ???
 
@@ -2225,6 +2214,43 @@ image_merge(
   add_background(color = bg_dark)
 
 ```
+
+---
+class: split-square2
+
+.column.p-2.dark[
+.vmiddle.center[
+# One-Minute
+# Reunion
+]
+]
+
+.column[
+<object data="one_minute_reunion.svg" type="image/svg+xml"></object>
+]
+
+???
+
+```{r, eval=remake}
+spiro(
+  fixed_radius = 5,
+  cycling_radius = 1,
+  pen_radius = 11 / 3,
+  color_groups = 5,
+  colors = rep("gray95", 5),
+  start_angle = pi,
+  draw_fills = FALSE,
+  rotation = pi / 10,
+  file = "one_minute_reunion.svg",
+  points_per_polygon = 250) %>% 
+  add_pathdot(
+    colors = "firebrick", 
+    duration = c(2,3,4,5,6,10,12,15,20,30,60)) %>% 
+  # add_restart(color = "#333333",fill = scales::alpha("gray95")) %>%
+  add_background(bg_light)
+```
+
+
 
 ---
 class: split-square1
