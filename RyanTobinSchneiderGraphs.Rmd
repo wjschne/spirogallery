@@ -6,7 +6,7 @@ institute: "Welsh Valley Middle School"
 date: "`r Sys.Date()`"
 output:
   xaringan::moon_reader:
-    css: [default, xaringan-themer.css, chocolate-fonts, "https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"]
+    css: [default, xaringan-themer.css, chocolate-fonts, bootstrap.min.css]
     lib_dir: libs
     nature:
       highlightStyle: github
