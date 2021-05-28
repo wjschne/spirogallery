@@ -6,7 +6,6 @@ lang: en-US
 output:
   xaringan::moon_reader:
     self_contained: false
-  
     seal: false
     css: [bootstrap.min.css, default, ninjutsu, spiro_slides.css]
     lib_dir: libs
@@ -16,7 +15,7 @@ output:
       countIncrementalSlides: false
       ratio: "16:9"
       titleSlideClass: ["center", "middle", "dark"]
-      beforeInit: "giffer.js"
+      beforeInit: "myjs.js"
 ---
 class: split-square2, dark
 
@@ -49,10 +48,6 @@ bg_light <- "#f0f2f5"
 bg_dark <- "#282829"
 ```
 
-```{r xaringanExtra-freezeframe, echo=FALSE, eval=TRUE}
-options(htmltools.dir.version = FALSE)
-xaringanExtra::use_freezeframe()
-```
 
 ```{r xaringan-tile-view, echo=FALSE, eval=TRUE}
 library(xaringanExtra)
@@ -298,6 +293,7 @@ of the fixed circle.
 ]
 ]
 
+
 .column[
 ![](animationsvg.gif)
 ]
@@ -411,7 +407,7 @@ class: split-square1, dark
 
 
 .column.p-3.bg-white[
-<object data="oslo_aster.svg" type="image/svg+xml"></object>
+<object id="osloaster" data="oslo_aster.svg" type="image/svg+xml"></object>
 ]
 
 .column.p-5.dark[
@@ -421,7 +417,24 @@ class: split-square1, dark
 # Will We Be
 # .small[As] We Were?
 ]
+
 ]
+
+
+
+<!-- 
+<button type="button" class="btn btn-light bottom-right" onclick='document.getElementById("osloaster").contentDocument.getElementsByTagName("svg")[0].pauseAnimations();slideshow.gotoNextSlide();'>Next Slide</button>
+--> 
+
+
+<!--  --> 
+<button type="button" class="btn btn-light bottom-right" onclick='document.getElementById("osloaster").contentDocument.getElementsByTagName("svg")[0].pauseAnimations();'>Next Slide</button>
+<!--  --> 
+
+<!--  --> 
+<button type="button" class="btn btn-light fixed-bottom" onclick='document.getElementById("osloaster").contentDocument.getElementsByTagName("svg")[0].unpauseAnimations()'>Unpause</button>
+<!--  --> 
+
 
 ???
 
@@ -441,8 +454,7 @@ spiro(file = "oslo_aster.svg",
   image_scale(scale = sqrt(0.75 ^ (seq(0, n - 1)))) %>%
   image_spin(rpm = 1:n + 1) %>%
   add_background(color = "black",
-                 rounding = 1) %>%
-  add_restart()
+                 rounding = 1) 
 
 ```
 
@@ -2298,7 +2310,16 @@ tibble(
 
 
 
+<!--- --->
+<script>
+var obs = document.getElementsByTagName("object");
 
+var i;
+for (i = 0; i < obs.length; i++) {
+  obs[i].contentDocument.getElementsByTagName("svg")[0].pauseAnimations()
+}
+</script>
+<!--- --->
 
-
+<script src="myjs.js"></script>
 

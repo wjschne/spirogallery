@@ -4,19 +4,16 @@
     <title>Schneirographs</title>
     <meta charset="utf-8" />
     <meta name="author" content="by W. Joel Schneider" />
-    <script src="libs/header-attrs/header-attrs.js"></script>
-    <link href="libs/remark-css/default.css" rel="stylesheet" />
-    <link href="libs/remark-css/ninjutsu.css" rel="stylesheet" />
-    <script src="libs/freezeframe/freezeframe.min.js"></script>
-    <script src="libs/xaringanExtra-freezeframe/freezeframe-init.js"></script>
-    <script id="xaringanExtra-freezeframe-options" type="application/json">{"selector":"img[src$=\"gif\"]","trigger":"click","overlay":false,"responsive":true,"warnings":true}</script>
-    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
-    <script src="libs/tile-view/tile-view.js"></script>
-    <script src="libs/clipboard/clipboard.min.js"></script>
-    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
-    <script src="libs/shareon/shareon.min.js"></script>
-    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
-    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <script src="libs/header-attrs-2.8/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/ninjutsu.css" rel="stylesheet" />
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="libs/shareon-1.4.1/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon-1.4.1/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain-0.2.6/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain-0.2.6/shareagain.js"></script>
     <link rel="stylesheet" href="bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="spiro_slides.css" type="text/css" />
   </head>
@@ -24,7 +21,6 @@
     <textarea id="source">
 
 class: split-square2, dark
-
 
 
 
@@ -271,6 +267,7 @@ of the fixed circle.
 ]
 ]
 
+
 .column[
 ![](animationsvg.gif)
 ]
@@ -386,7 +383,7 @@ class: split-square1, dark
 
 
 .column.p-3.bg-white[
-&lt;object data="oslo_aster.svg" type="image/svg+xml"&gt;&lt;/object&gt;
+&lt;object id="osloaster" data="oslo_aster.svg" type="image/svg+xml"&gt;&lt;/object&gt;
 ]
 
 .column.p-5.dark[
@@ -396,7 +393,24 @@ class: split-square1, dark
 # Will We Be
 # .small[As] We Were?
 ]
+
 ]
+
+
+
+&lt;!-- 
+&lt;button type="button" class="btn btn-light bottom-right" onclick='document.getElementById("osloaster").contentDocument.getElementsByTagName("svg")[0].pauseAnimations();slideshow.gotoNextSlide();'&gt;Next Slide&lt;/button&gt;
+--&gt; 
+
+
+&lt;!--  --&gt; 
+&lt;button type="button" class="btn btn-light bottom-right" onclick='document.getElementById("osloaster").contentDocument.getElementsByTagName("svg")[0].pauseAnimations();'&gt;Next Slide&lt;/button&gt;
+&lt;!--  --&gt; 
+
+&lt;!--  --&gt; 
+&lt;button type="button" class="btn btn-light fixed-bottom" onclick='document.getElementById("osloaster").contentDocument.getElementsByTagName("svg")[0].unpauseAnimations()'&gt;Unpause&lt;/button&gt;
+&lt;!--  --&gt; 
+
 
 ???
 
@@ -417,8 +431,7 @@ spiro(file = "oslo_aster.svg",
   image_scale(scale = sqrt(0.75 ^ (seq(0, n - 1)))) %&gt;%
   image_spin(rpm = 1:n + 1) %&gt;%
   add_background(color = "black",
-                 rounding = 1) %&gt;%
-  add_restart()
+                 rounding = 1) 
 ```
 
 ---
@@ -2308,14 +2321,23 @@ tibble(
 
 
 
+&lt;!--- ---&gt;
+&lt;script&gt;
+var obs = document.getElementsByTagName("object");
 
+var i;
+for (i = 0; i &lt; obs.length; i++) {
+  obs[i].contentDocument.getElementsByTagName("svg")[0].pauseAnimations()
+}
+&lt;/script&gt;
+&lt;!--- ---&gt;
 
-
+&lt;script src="myjs.js"&gt;&lt;/script&gt;
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script src="giffer.js"></script>
+<script src="myjs.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "kate",
 "highlightLines": true,

@@ -122,3 +122,8 @@ max-width: 43.75%;
 width: 56.25%;
 }
 
+.bottom-right{
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+}
