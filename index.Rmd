@@ -3,6 +3,7 @@ title: Schneirographs
 subtitle: Three Numbers and One Equation
 author: by W. Joel Schneider
 lang: en-US
+knit:: xaringan:::inf_mr()
 output:
   xaringan::moon_reader:
     self_contained: false
@@ -15,7 +16,6 @@ output:
       countIncrementalSlides: false
       ratio: "16:9"
       titleSlideClass: ["center", "middle", "dark"]
-      beforeInit: "myjs.js"
 ---
 class: split-square2, dark
 
@@ -407,7 +407,17 @@ class: split-square1, dark
 
 
 .column.p-3.bg-white[
-<object id="osloaster" data="oslo_aster.svg" type="image/svg+xml"></object>
+<object id="osloaster" class="spiro" data="oslo_aster.svg" type="image/svg+xml"></object>
+
+<!--  --> 
+<button id="osloAsterButton" type="button" class="playbtn btn btn-light position-absolute bottom-0 start-0 m-2" onclick='if (this.innerHTML == "Play") {
+this.innerHTML = "Pause";
+document.getElementById("osloaster").contentDocument.documentElement.unpauseAnimations();
+} else {
+this.innerHTML = "Play";
+document.getElementById("osloaster").contentDocument.documentElement.pauseAnimations();}'>Play</button>
+<!--  --> 
+
 ]
 
 .column.p-5.dark[
@@ -418,22 +428,9 @@ class: split-square1, dark
 # .small[As] We Were?
 ]
 
+
+
 ]
-
-
-
-<!-- 
-<button type="button" class="btn btn-light bottom-right" onclick='document.getElementById("osloaster").contentDocument.getElementsByTagName("svg")[0].pauseAnimations();slideshow.gotoNextSlide();'>Next Slide</button>
---> 
-
-
-<!--  --> 
-<button type="button" class="btn btn-light bottom-right" onclick='document.getElementById("osloaster").contentDocument.getElementsByTagName("svg")[0].pauseAnimations();'>Next Slide</button>
-<!--  --> 
-
-<!--  --> 
-<button type="button" class="btn btn-light fixed-bottom" onclick='document.getElementById("osloaster").contentDocument.getElementsByTagName("svg")[0].unpauseAnimations()'>Unpause</button>
-<!--  --> 
 
 
 ???
@@ -454,9 +451,11 @@ spiro(file = "oslo_aster.svg",
   image_scale(scale = sqrt(0.75 ^ (seq(0, n - 1)))) %>%
   image_spin(rpm = 1:n + 1) %>%
   add_background(color = "black",
-                 rounding = 1) 
+                 rounding = 1) %>% 
+  pause_onload()
 
 ```
+
 
 ---
 class: split-square2, dark
@@ -613,7 +612,18 @@ spiro(
 class: split-square1, dark
 
 .column[
-<object data="suspension_of_disbelief.svg" type="image/svg+xml"></object>
+<object id="suspensionofdisbelief" class="spiro" data="suspension_of_disbelief.svg" type="image/svg+xml"></object>
+
+<!--  --> 
+<button type="button" class="playbtn btn btn-light position-absolute bottom-0 start-0 m-2" onclick='if (this.innerHTML == "Play") {
+this.innerHTML = "Pause";
+document.getElementById("suspensionofdisbelief").contentDocument.documentElement.unpauseAnimations();
+} else {
+this.innerHTML = "Play";
+document.getElementById("suspensionofdisbelief").contentDocument.documentElement.pauseAnimations();}'>Play</button>
+<!--  --> 
+
+
 ]
 
 .column.p-5.dark[
@@ -689,7 +699,18 @@ spiro(
 class: split-square1
 
 .column[
-<object data="violet_blackout.svg" type="image/svg+xml"></object>
+<object id="violetblackout" class="spiro" data="violet_blackout.svg" type="image/svg+xml"></object>
+
+<!--  --> 
+<button type="button" style="background-color:black" class="playbtn btn btn-dark position-absolute bottom-0 start-0 m-2" onclick='if (this.innerHTML == "Play") {
+this.innerHTML = "Pause";
+document.getElementById("violetblackout").contentDocument.documentElement.unpauseAnimations();
+} else {
+this.innerHTML = "Play";
+document.getElementById("violetblackout").contentDocument.documentElement.pauseAnimations();}'>Play</button>
+<!--  --> 
+
+
 ]
 
 .column.p-5.light[
@@ -859,7 +880,16 @@ spiro(
 class: split-square1, dark
 
 .column.bg-white[
-<object data="illusively_elusive_allusion.svg" type="image/svg+xml"></object>
+<object id="illusively" class="spiro" data="illusively_elusive_allusion.svg" type="image/svg+xml"></object>
+
+<!--  --> 
+<button type="button" class="playbtn btn btn-light position-absolute bottom-0 start-0 m-2" onclick='if (this.innerHTML == "Play") {
+this.innerHTML = "Pause";
+document.getElementById("illusively").contentDocument.documentElement.unpauseAnimations();
+} else {
+this.innerHTML = "Play";
+document.getElementById("illusively").contentDocument.documentElement.pauseAnimations();}'>Play</button>
+<!--  --> 
 ]
 
 .column.p-2.dark[
@@ -1113,7 +1143,17 @@ tibble(
 class: split-square1, dark
 
 .column.p-2.light[
-<object data="counterspin_triangles.svg" type="image/svg+xml"></object>
+<object id="counterspintriangles" class="spiro" data="counterspin_triangles.svg" type="image/svg+xml"></object>
+
+<!--  --> 
+<button type="button" class="playbtn btn btn-light position-absolute bottom-0 start-0 m-2" onclick='if (this.innerHTML == "Play") {
+this.innerHTML = "Pause";
+document.getElementById("counterspintriangles").contentDocument.documentElement.unpauseAnimations();
+} else {
+this.innerHTML = "Play";
+document.getElementById("counterspintriangles").contentDocument.documentElement.pauseAnimations();}'>Play</button>
+<!--  --> 
+
 ]
 
 .column.p-2.dark[
@@ -1203,7 +1243,7 @@ class: split-square1
 
 .column[
 <!--  --> 
-<img src="expensive_plaid.svg" type="image/svg+xml">
+ <img src="expensive_plaid.svg" type="image/svg+xml">
 <!--  --> 
 ]
 
@@ -1361,7 +1401,17 @@ tibble::tibble(
 class: split-square1, dark
 
 .column.p-2[
-<object data="second_event_horizon.svg" type="image/svg+xml"></object>
+<object id="secondeventhorizon" class="spiro" data="second_event_horizon.svg" type="image/svg+xml"></object>
+
+<!--  --> 
+<button type="button" class="playbtn btn btn-dark position-absolute bottom-0 start-0 m-2" onclick='if (this.innerHTML == "Play") {
+this.innerHTML = "Pause";
+document.getElementById("secondeventhorizon").contentDocument.documentElement.unpauseAnimations();
+} else {
+this.innerHTML = "Play";
+document.getElementById("secondeventhorizon").contentDocument.documentElement.pauseAnimations();}'>Play</button>
+<!--  --> 
+
 ]
 
 .column.dark.pr-4[
@@ -1726,7 +1776,16 @@ tibble(
 class: split-square1
 
 .column[
-<object data="reconciliation491.svg" type="image/svg+xml"></object>
+<object id="reconciliation491" class="spiro" data="reconciliation491.svg" type="image/svg+xml"></object>
+
+<!--  --> 
+<button type="button" class="playbtn btn btn-dark position-absolute bottom-0 start-0 m-2" style="background-color: #000526;" onclick='if (this.innerHTML == "Play") {
+this.innerHTML = "Pause";
+document.getElementById("reconciliation491").contentDocument.documentElement.unpauseAnimations();
+} else {
+this.innerHTML = "Play";
+document.getElementById("reconciliation491").contentDocument.documentElement.pauseAnimations();}'>Play</button>
+<!--  --> 
 ]
 
 .column.p-2.light[
@@ -1803,7 +1862,16 @@ spiro(
 class: split-square1
 
 .column.p-2.dark[
-<object data="web_windows.svg" type="image/svg+xml"></object>
+<object id="webwindows" class="spiro" data="web_windows.svg" type="image/svg+xml"></object>
+
+<!--  --> 
+<button type="button" class="playbtn btn btn-dark position-absolute bottom-0 start-0 m-2" onclick='if (this.innerHTML == "Play") {
+this.innerHTML = "Pause";
+document.getElementById("webwindows").contentDocument.documentElement.unpauseAnimations();
+} else {
+this.innerHTML = "Play";
+document.getElementById("webwindows").contentDocument.documentElement.pauseAnimations();}'>Play</button>
+<!--  --> 
 ]
 
 
@@ -1890,7 +1958,16 @@ spiro(
 class: split-square1, dark
 
 .column[
-<object data="colliding_scopes.svg" type="image/svg+xml"></object>
+<object id="collidingscopes" class="spiro" data="colliding_scopes.svg" type="image/svg+xml"></object>
+
+<!--  --> 
+<button type="button" class="playbtn btn btn-light position-absolute bottom-0 start-0 m-2" onclick='if (this.innerHTML == "Play") {
+this.innerHTML = "Pause";
+document.getElementById("collidingscopes").contentDocument.documentElement.unpauseAnimations();
+} else {
+this.innerHTML = "Play";
+document.getElementById("collidingscopes").contentDocument.documentElement.pauseAnimations();}'>Play</button>
+<!--  --> 
 ]
 
 .column.p-2.dark[
@@ -2176,13 +2253,23 @@ dev.off()
 class: split-square1
 
 .column[
-<object data="sunrises_are_sunsets_recycled.svg" type="image/svg+xml"></object>
+<object id="sunrisesaresunsetsrecycled" class="spiro" data="sunrises_are_sunsets_recycled.svg" type="image/svg+xml"></object>
+
+<!--  --> 
+<button type="button" class="playbtn btn btn-dark position-absolute bottom-0 start-0 m-2" onclick='if (this.innerHTML == "Play") {
+this.innerHTML = "Pause";
+document.getElementById("sunrisesaresunsetsrecycled").contentDocument.documentElement.unpauseAnimations();
+} else {
+this.innerHTML = "Play";
+document.getElementById("sunrisesaresunsetsrecycled").contentDocument.documentElement.pauseAnimations();}'>Play</button>
+<!--  -->
 ]
 
 .column.p-2.light[
 .vmiddle.center[
-# Sunrises Are 
-# Sunsets Recycled
+# Sunrises 
+# Are Sunsets
+# Recycled
 ]
 ]
 
@@ -2222,23 +2309,36 @@ image_merge(
   copies = 5, 
   output = "sunrises_are_sunsets_recycled.svg") %>%
   image_spin(rpm = 1:5 / 5) %>%
-  add_restart(color = bg_light, fill = bg_dark) %>%
-  add_background(color = bg_dark)
+  add_background(color = bg_dark) %>% 
+  pause_onload()
 
 ```
 
 ---
-class: split-square2
+class: split-square1
+
+
+
+.column[
+<object id="oneminutereunion" class="spiro" data="one_minute_reunion.svg" type="image/svg+xml"></object>
+
+<!--  --> 
+<button type="button" class="playbtn btn btn-light position-absolute bottom-0 start-0 m-2" onclick='if (this.innerHTML == "Play") {
+this.innerHTML = "Pause";
+document.getElementById("oneminutereunion").contentDocument.documentElement.unpauseAnimations();
+} else {
+this.innerHTML = "Play";
+document.getElementById("oneminutereunion").contentDocument.documentElement.pauseAnimations();}'>Play</button>
+<!--  -->
+]
+
+
 
 .column.p-2.dark[
 .vmiddle.center[
 # One-Minute
 # Reunion
 ]
-]
-
-.column[
-<object data="one_minute_reunion.svg" type="image/svg+xml"></object>
 ]
 
 ???
@@ -2311,14 +2411,6 @@ tibble(
 
 
 <!--- --->
-<script>
-var obs = document.getElementsByTagName("object");
-
-var i;
-for (i = 0; i < obs.length; i++) {
-  obs[i].contentDocument.getElementsByTagName("svg")[0].pauseAnimations()
-}
-</script>
 <!--- --->
 
 <script src="myjs.js"></script>

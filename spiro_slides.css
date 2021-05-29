@@ -127,3 +127,13 @@ width: 56.25%;
   bottom: 1em;
   right: 1em;
 }
+
+.playbtn {
+  width: 70px;
+  filter: drop-shadow(-1.5px 1.5px 1.5px #282829);
+}
+
+.btn-dark {
+  width: 70px;
+  filter: drop-shadow(-1px 1px 2.5px #505051);
+}
