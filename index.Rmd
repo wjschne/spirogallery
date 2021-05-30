@@ -49,18 +49,18 @@ bg_dark <- "#282829"
 ```
 
 
-```{r xaringan-tile-view, echo=FALSE, eval=TRUE}
+```{r xaringan-tile-view, echo=FALSE, eval=F}
 library(xaringanExtra)
 xaringanExtra::use_tile_view()
 ```
 
 
-```{r share-again, echo=FALSE, eval=TRUE}
+```{r share-again, echo=FALSE, eval=F}
 xaringanExtra::use_share_again()
 xaringanExtra::style_share_again(share_buttons = "all")
 ```
 
-```{r style-share-again, echo=FALSE, eval=TRUE}
+```{r style-share-again, echo=FALSE, eval=F}
 xaringanExtra::style_share_again(
   share_buttons = c("all")
 )
