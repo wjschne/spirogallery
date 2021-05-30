@@ -1,0 +1,40 @@
+<script>
+var slideElements;
+function getElementForSlide(slide) {
+  slideElements = slideElements || document.querySelectorAll('.remark-slide');
+  return slideElements[slide.getSlideIndex()];
+  }
+
+
+slideshow.on('hideSlide', function (slide) {
+  // Slide is the slide being navigated away from
+  
+  var s = getElementForSlide(slide);
+  var o = s.querySelector('object.spiro');
+  
+  if (o != null) {
+    o.contentDocument.documentElement.pauseAnimations();
+  }
+  
+  var b = s.querySelector("button")
+  if (b != null) {
+    b.innerHTML = "Play";
+  }
+    
+	});
+  
+
+    
+
+
+
+function playpause(id, mybutton) {
+  if (mybutton.innerHTML == "Play") {
+mybutton.innerHTML = "Pause";
+document.getElementById(id).contentDocument.documentElement.unpauseAnimations();
+} else {
+mybutton.innerHTML = "Play";
+document.getElementById(id).contentDocument.documentElement.pauseAnimations();}
+}
+
+</script>
