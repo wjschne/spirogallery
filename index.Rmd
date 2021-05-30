@@ -414,7 +414,7 @@ class: split-square1, dark
 <!--  --> 
 
 <!--  --> 
-<button id="osloAsterButton" type="button" class="playbtn btn btn-light position-absolute bottom-0 start-0 m-2" onclick='document.getElementById("osloaster").contentDocument.documentElement.unpauseAnimations();'>Play</button>
+<button id="osloAsterButton" type="button" class="playbtn btn btn-light position-absolute bottom-0 start-0 m-2" onclick='playpause("osloaster", this);'>Play</button>
 <!--  --> 
 
 ]

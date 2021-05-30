@@ -389,7 +389,7 @@ class: split-square1, dark
 &lt;!--  --&gt; 
 
 &lt;!--  --&gt; 
-&lt;button id="osloAsterButton" type="button" class="playbtn btn btn-light position-absolute bottom-0 start-0 m-2" onclick='document.getElementById("osloaster").contentDocument.documentElement.unpauseAnimations();'&gt;Play&lt;/button&gt;
+&lt;button id="osloAsterButton" type="button" class="playbtn btn btn-light position-absolute bottom-0 start-0 m-2" onclick='playpause("osloaster", this);'&gt;Play&lt;/button&gt;
 &lt;!--  --&gt; 
 
 ]
@@ -2499,8 +2499,8 @@ mybutton.innerHTML = "Pause";
 document.getElementById(id).contentDocument.documentElement.unpauseAnimations();
 } else {
 mybutton.innerHTML = "Play";
-// document.getElementById(id).contentDocument.documentElement.pauseAnimations();}
-document.getElementById(id).getSVGDocument().pauseAnimations();} 
+document.getElementById(id).contentDocument.documentElement.pauseAnimations();}
+
 
 }
 
