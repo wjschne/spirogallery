@@ -3,7 +3,6 @@ title: Schneirographs
 subtitle: Three Numbers and One Equation
 author: by W. Joel Schneider
 lang: en-US
-knit:: xaringan:::inf_mr()
 output:
   xaringan::moon_reader:
     self_contained: false
@@ -415,7 +414,7 @@ class: split-square1, dark
 <!--  --> 
 
 <!--  --> 
-<button id="osloAsterButton" type="button" class="playbtn btn btn-light position-absolute bottom-0 start-0 m-2" onclick='playpause("olsoaster", this);'>Play</button>
+<button id="osloAsterButton" type="button" class="playbtn btn btn-light position-absolute bottom-0 start-0 m-2" onclick='document.getElementById("osloaster").contentDocument.documentElement.unpauseAnimations();'>Play</button>
 <!--  --> 
 
 ]

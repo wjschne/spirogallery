@@ -34,7 +34,9 @@ mybutton.innerHTML = "Pause";
 document.getElementById(id).contentDocument.documentElement.unpauseAnimations();
 } else {
 mybutton.innerHTML = "Play";
-document.getElementById(id).contentDocument.documentElement.pauseAnimations();}
+// document.getElementById(id).contentDocument.documentElement.pauseAnimations();}
+document.getElementById(id).getSVGDocument().pauseAnimations();} 
+
 }
 
 </script>
