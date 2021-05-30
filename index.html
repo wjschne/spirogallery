@@ -336,6 +336,101 @@ crossing(cycling_radius = 1:k, fixed_radius = k * 2 + 1) %&gt;%
   add_background()
 ```
 
+---
+class: split-square2
+
+.column.dark[
+  .vmiddle.center[
+# Licorice Donut
+# Vivisection
+  ]
+]
+
+.column.p-3[
+  &lt;!--  --&gt; 
+    &lt;img src="licorice_donut_vivisection.svg" type="image/svg+xml", &gt;
+    &lt;!--  --&gt; 
+]
+
+???
+  
+
+```r
+rainbow_colors &lt;- hsv(
+  h = seq(1 / 16, 1, length.out = 16),
+  s = 0.7,
+  v = 0.7)
+
+spiro(
+  fixed_radius = 16,
+  cycling_radius = 5,
+  pen_radius = 5,
+  file = "licorice_donut_vivisection.svg",
+  color_groups = 16,
+  color_cycles = 2,
+  points_per_polygon = 50,
+  colors = rainbow_colors,
+  transparency = 0.7) %&gt;%
+  add_background_gradient(
+    colors = c("white", "black", "black", "white"),
+    stops = c(.27, .34, .93, 1), 
+    rounding = 1, 
+    radius = 1)
+```
+
+---
+class: split-square1, dark
+
+
+.column.p-3.bg-white[
+&lt;object id="osloaster" class="spiro" data="oslo_aster.svg" type="image/svg+xml"&gt;&lt;/object&gt;
+    
+&lt;!--  --&gt; 
+&lt;button id="osloAsterButton" type="button" class="playbtn btn btn-light position-absolute bottom-0 start-0 m-2" onclick='if (this.innerHTML == "Play") {
+this.innerHTML = "Pause";
+document.getElementById("osloaster").contentDocument.documentElement.unpauseAnimations();
+} else {
+this.innerHTML = "Play";
+document.getElementById("osloaster").contentDocument.documentElement.pauseAnimations();}'&gt;Play&lt;/button&gt;
+&lt;!--  --&gt; 
+  
+]
+
+.column.p-5.dark[
+  .vmiddle.center[
+# When We
+# Meet Again,
+# Will We Be
+# .small[As] We Were?
+  ]
+  
+  
+  
+]
+
+
+???
+  
+
+```r
+n &lt;- 10
+oslo_colors &lt;- scico(n = n,
+                     palette = "oslo",
+                     alpha = 0.9) %&gt;%
+  rev()
+
+spiro(file = "oslo_aster.svg",
+      rotation = pi / 6,
+      points_per_polygon = 100) %&gt;%
+  image_merge(output = "oslo_aster.svg",
+              copies = n) %&gt;%
+  add_fills(colors = oslo_colors) %&gt;%
+  image_scale(scale = sqrt(0.75 ^ (seq(0, n - 1)))) %&gt;%
+  image_spin(rpm = 1:n + 1) %&gt;%
+  add_background(color = "black",
+                 rounding = 1) %&gt;% 
+  pause_onload()
+```
 
 
 &lt;script src="myjs.js"&gt;&lt;/script&gt;
