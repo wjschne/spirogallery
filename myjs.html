@@ -24,9 +24,24 @@ slideshow.on('hideSlide', function (slide) {
 	});
   
 
+window.onload = (event) => {
+
+  obs = document.querySelector('object.spiro');
+  console.log(obs);
+  for (o in obs) {
     
+    if (o != null) {
+      console.log( o.contentDocument.documentElement("path"));
+      o.contentDocument.documentElement.pauseAnimations();
+      }
+  }
+  
+};    
 
 
+$(document).ready(function() { obs = document.querySelector('object.spiro');
+  console.log(obs);});
+$(function() { /* code here */ });
 
 function playpause(id, mybutton) {
   if (mybutton.innerHTML == "Play") {
@@ -38,5 +53,3 @@ document.getElementById(id).contentDocument.documentElement.pauseAnimations();}
 
 
 }
-
-</script>
