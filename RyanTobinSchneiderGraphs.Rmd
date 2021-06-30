@@ -241,6 +241,27 @@ If only he was right in the head. *If*.
 ]
 ]
 
+---
+class: m-0, p-0
+
+.row[
+.col-5[
+
+.m-4[
+
+# Hypnotic Alien
+
+Fear not! They are actually friendly.
+
+
+]
+]
+
+.col-7[
+<object data="hypnoticalience.svg" type="image/svg+xml" />
+]
+]
+
 
 ---
 class: m-0, p-0

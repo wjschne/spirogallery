@@ -4,7 +4,7 @@
     <title>Schneirographs</title>
     <meta charset="utf-8" />
     <meta name="author" content="by W. Joel Schneider" />
-    <script src="libs/header-attrs-2.8/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.9/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/ninjutsu.css" rel="stylesheet" />
     <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
@@ -437,8 +437,7 @@ spiro(file = "oslo_aster.svg",
   image_scale(scale = sqrt(0.75 ^ (seq(0, n - 1)))) %&gt;%
   image_spin(rpm = 1:n + 1) %&gt;%
   add_background(color = "black",
-                 rounding = 1) %&gt;% 
-  pause_onload()
+                 rounding = 1) 
 ```
 
 
@@ -2515,9 +2514,7 @@ window.onload = (event) => {
 };    
 
 
-$(document).ready(function() { obs = document.querySelector('object.spiro');
-  console.log(obs);});
-$(function() { /* code here */ });
+
 
 function playpause(id, mybutton) {
   if (mybutton.innerHTML == "Play") {
@@ -2528,7 +2525,7 @@ mybutton.innerHTML = "Play";
 document.getElementById(id).contentDocument.documentElement.pauseAnimations();}
 
 
-}
+};
 
 <script>
 slideshow._releaseMath = function(el) {

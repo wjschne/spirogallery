@@ -462,7 +462,7 @@ spiro(file = "oslo_aster.svg",
   image_spin(rpm = 1:n + 1) %>%
   add_background(color = "black",
                  rounding = 1) %>% 
-  pause_onload()
+  spiro::pause_onload()
 
 ```
 
