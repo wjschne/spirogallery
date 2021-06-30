@@ -44,10 +44,13 @@ window.onload = (event) => {
 function playpause(id, mybutton) {
   if (mybutton.innerHTML == "Play") {
 mybutton.innerHTML = "Pause";
-document.getElementById(id).contentDocument.documentElement.unpauseAnimations();
+var d = document.getElementById(id);
+d.contentDocument.documentElement.unpauseAnimations();
 } else {
 mybutton.innerHTML = "Play";
 document.getElementById(id).contentDocument.documentElement.pauseAnimations();}
 
 
 };
+
+</script>

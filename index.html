@@ -437,7 +437,8 @@ spiro(file = "oslo_aster.svg",
   image_scale(scale = sqrt(0.75 ^ (seq(0, n - 1)))) %&gt;%
   image_spin(rpm = 1:n + 1) %&gt;%
   add_background(color = "black",
-                 rounding = 1) 
+                 rounding = 1) %&gt;% 
+  pause_onload()
 ```
 
 
@@ -2519,13 +2520,16 @@ window.onload = (event) => {
 function playpause(id, mybutton) {
   if (mybutton.innerHTML == "Play") {
 mybutton.innerHTML = "Pause";
-document.getElementById(id).contentDocument.documentElement.unpauseAnimations();
+var d = document.getElementById(id);
+d.contentDocument.documentElement.unpauseAnimations();
 } else {
 mybutton.innerHTML = "Play";
 document.getElementById(id).contentDocument.documentElement.pauseAnimations();}
 
 
 };
+
+</script>
 
 <script>
 slideshow._releaseMath = function(el) {
